@@ -69,15 +69,15 @@ export class Rectangle implements Figure {
     this.shape = 'rectangle';
 
     if (this.width <= 0 || this.height <= 0) {
-      throw new Error('your error message');
+      throw new Error('Width and height must be positive numbers');
     }
   }
 
   getArea(): number {
-    return this.height * this.width;
+    return Math.floor(this.height * this.width * 100) / 100;
   }
 }
 
-export function getInfo(figure): string {
+export function getInfo(figure: Figure): string {
   return `A ${figure.color} ${figure.shape} - ${figure.getArea()}`;
 }
